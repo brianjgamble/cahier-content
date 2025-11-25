@@ -1,8 +1,7 @@
-<p>
-    <a href="https://github.com/brianjgamble/cahier-content/actions/workflows/haskell.yml"><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/brianjgamble/cahier-content/haskell.yml"/></a>
-    <a href="LICENSE.md" alt="Code license"><img src="https://img.shields.io/badge/code_license-BSD_3_Clause-yellow" /></a>
-    <a href="https://www.haskell.org/" alt="Haskell"><img src="https://img.shields.io/badge/Haskell-5e5086?logo=haskell&logoColor=white" /></a>
-</p>
+[![Haskell](https://img.shields.io/badge/Haskell-5e5086?logo=haskell&logoColor=white)](https://www.haskell.org/)
+[![Build status](https://img.shields.io/github/actions/workflow/status/brianjgamble/cahier-content/haskell.yml)](https://github.com/brianjgamble/cahier-content/actions/workflows/haskell.yml)
+[![Github release](https://img.shields.io/github/v/release/brianjgamble/cahier-content?color=0172ad&logo=github&logoColor=white)](https://github.com/brianjgamble/cahier-content/releases/latest)
+[![License](https://img.shields.io/badge/license-BSD_3_Clause-blue)](https://github.com/brianjgamble/cahier-content/blob/master/LICENSE.md)
 
 # &#x1F5C2; cahier-content
 
