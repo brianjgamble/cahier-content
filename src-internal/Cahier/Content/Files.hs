@@ -28,11 +28,11 @@ loadAllPoems dir = do
     result <- loadPoem path
     return $ case result of
       Left err -> Left $ path ++ ": " ++ err
-      Right poem@(Poem (PoemMetadata title _ _) _) ->
+      Right poem@(MkPoem (MkPoemMetadata title _ _) _) ->
         Right (slugify title, poem)
 
 -- | Load all blog posts from a directory
-loadAllPosts :: FilePath -> IO ([(Text, BlogPost)], [String])
+loadAllPosts :: FilePath -> IO ([(Text, Post)], [String])
 loadAllPosts dir = do
   exists <- doesDirectoryExist dir
   if not exists
@@ -50,7 +50,7 @@ loadAllPosts dir = do
     result <- loadPost path
     return $ case result of
       Left err -> Left $ path ++ ": " ++ err
-      Right post@(BlogPost (PostMetadata title _ _ _ _) _) ->
+      Right post@(MkPost (MkPostMetadata title _ _ _ _) _) ->
         Right (slugify title, post)
 
 -- Load a poem from a file
@@ -69,7 +69,7 @@ loadPoem path = do
     Right content -> return $ parsePoem content
 
 -- Load a blog post from a file
-loadPost :: FilePath -> IO (Either String BlogPost)
+loadPost :: FilePath -> IO (Either String Post)
 loadPost path = do
   result <-
     catchIOError

@@ -6,7 +6,7 @@ import Data.Time.Calendar (Day)
 import GHC.Generics
 
 -- | Metadata for blog posts
-data PostMetadata = PostMetadata
+data PostMetadata = MkPostMetadata
   { title :: Text
   , date :: Day
   , author :: Maybe Text
@@ -17,7 +17,7 @@ data PostMetadata = PostMetadata
 
 instance FromJSON PostMetadata where
   parseJSON = withObject "PostMetadata" $ \v ->
-    PostMetadata
+    MkPostMetadata
       <$> v .: "title"
       <*> v .: "date"
       <*> v .:? "author"
@@ -25,7 +25,7 @@ instance FromJSON PostMetadata where
       <*> v .:? "description"
 
 -- | Metadata for poetry
-data PoemMetadata = PoemMetadata
+data PoemMetadata = MkPoemMetadata
   { title :: Text
   , date :: Day
   , author :: Text
@@ -34,27 +34,21 @@ data PoemMetadata = PoemMetadata
 
 instance FromJSON PoemMetadata where
   parseJSON = withObject "PoemMetadata" $ \v ->
-    PoemMetadata
+    MkPoemMetadata
       <$> v .: "title"
       <*> v .: "date"
       <*> v .: "author"
 
 -- | Complete blog post with metadata and content
-data BlogPost = BlogPost
+data Post = MkPost
   { metadata :: PostMetadata
   , content :: Text
   }
   deriving (Show, Eq)
 
 -- | Complete poem with metadata and content
-data Poem = Poem
+data Poem = MkPoem
   { metadata :: PoemMetadata
   , content :: Text
   }
-  deriving (Show, Eq)
-
--- | Union type for any content
-data Content
-  = Post BlogPost
-  | Poetry Poem
   deriving (Show, Eq)

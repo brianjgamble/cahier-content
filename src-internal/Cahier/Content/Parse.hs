@@ -17,14 +17,14 @@ parsePoem :: Text -> Either String Poem
 parsePoem input = do
   (yamlText, markdownText) <- extractFrontmatter input
   meta <- first show $ decodeEither' (TE.encodeUtf8 yamlText)
-  return $ Poem meta (markdownToHtml markdownText)
+  return $ MkPoem meta (markdownToHtml markdownText)
 
 -- | Parse a blog post file
-parsePost :: Text -> Either String BlogPost
+parsePost :: Text -> Either String Post
 parsePost input = do
   (yamlText, markdownText) <- extractFrontmatter input
   meta <- first show $ decodeEither' (TE.encodeUtf8 yamlText)
-  return $ BlogPost meta (markdownToHtml markdownText)
+  return $ MkPost meta (markdownToHtml markdownText)
 
 -- Extract YAML frontmatter and markdown content
 extractFrontmatter :: Text -> Either String (Text, Text)
