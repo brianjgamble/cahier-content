@@ -5,7 +5,7 @@ import Data.Text qualified as T
 import Test.Hspec
 
 spec :: Spec
-spec = do
+spec = parallel do
   describe "slugify" do
     it "allows letters and numbers" $ do
       slugify (T.pack "ThIs Is A MiXeD CaSe!") `shouldBe` T.pack "this-is-a-mixed-case"
