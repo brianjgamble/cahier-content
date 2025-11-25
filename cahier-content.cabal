@@ -85,16 +85,22 @@ test-suite cahier-content-test
   -- The entrypoint to the test suite.
   main-is: Spec.hs
   other-modules:
+    Cahier.Content.TypesSpec
     Cahier.Content.UtilSpec
 
-  default-extensions: BlockArguments
-  -- Test dependencies.
+  default-extensions:
+    BlockArguments
+    DuplicateRecordFields
+    OverloadedStrings
+
   build-depends:
+    aeson >=2.2.3 && <2.3,
     base ^>=4.21.0.0,
     cahier-content:cahier-content-internal,
     hspec >=2.11.14 && <2.12,
     hspec-discover >=2.11.14 && <2.12,
     text >=2.1.2 && <2.2,
+    time >=1.14 && <1.15,
 
   build-tool-depends:
     hspec-discover:hspec-discover
