@@ -1,6 +1,6 @@
 cabal-version: 3.14
 name: cahier-content
-version: 0.6.0
+version: 0.6.1
 license: BSD-3-Clause
 license-file: LICENSE
 author: Brian J. Gamble
@@ -27,11 +27,11 @@ library cahier-content-internal
     base >=4.21 && <5,
     commonmark >=0.2.6 && <0.3,
     commonmark-extensions >=0.2.6 && <0.3,
-    containers >=0.7 && <0.8,
+    containers >=0.7 && <0.9,
     directory >=1.3.9 && <1.4,
     filepath >=1.5.4 && <1.6,
     text >=2.1.2 && <2.2,
-    time >=1.14 && <1.15,
+    time >=1.14 && <1.16,
     yaml >=0.11.11 && <0.12,
 
   default-extensions:
@@ -54,11 +54,11 @@ library
     cahier-content:cahier-content-internal,
     commonmark >=0.2.6 && <0.3,
     commonmark-extensions >=0.2.6 && <0.3,
-    containers >=0.7 && <0.8,
+    containers >=0.7 && <0.9,
     directory >=1.3.9 && <1.4,
     filepath >=1.5.4 && <1.6,
     text >=2.1.2 && <2.2,
-    time >=1.14 && <1.15,
+    time >=1.14 && <1.16,
     yaml >=0.11.11 && <0.12,
 
   default-extensions:
@@ -100,7 +100,7 @@ test-suite cahier-content-test
     hspec >=2.11.14 && <2.12,
     hspec-discover >=2.11.14 && <2.12,
     text >=2.1.2 && <2.2,
-    time >=1.14 && <1.15,
+    time >=1.14 && <1.16,
 
   build-tool-depends:
     hspec-discover:hspec-discover
